@@ -1,0 +1,350 @@
+checkpoint: saved_models/fe_fusionpoint.pth
+train_data_path: dataset/SuperEvent_data
+shuffle_data: true
+max_num_samples_per_sequence_train:
+  mvsec: 7000
+  fpv: 1500
+  griffin: 4000
+max_num_samples_per_sequence_val:
+  ddd20: 1000
+  fpv: 500
+  griffin: 750
+dataset_names:
+- uevd
+- gen_coco
+- gen_coco_1
+val_sequences:
+- uevd:
+  - test_subset_00
+  - test_subset_01
+  - test_subset_02
+  - test_subset_03
+  - test_subset_04
+  - test_subset_05
+  - test_subset_06
+  - test_subset_07
+  - test_subset_08
+  - test_subset_09
+- gen_coco:
+  - seq_000000
+  - seq_000001
+  - seq_000002
+  - seq_000003
+  - seq_000004
+  - seq_000005
+  - seq_000006
+  - seq_000007
+  - seq_000008
+  - seq_000009
+  - seq_000010
+  - seq_000011
+  - seq_000012
+  - seq_000013
+  - seq_000014
+  - seq_000015
+  - seq_000016
+  - seq_000017
+  - seq_000018
+  - seq_000019
+  - seq_000020
+  - seq_000021
+  - seq_000022
+  - seq_000023
+  - seq_000024
+  - seq_000025
+  - seq_000026
+  - seq_000027
+  - seq_000028
+  - seq_000029
+  - seq_000030
+  - seq_000031
+  - seq_000032
+  - seq_000033
+  - seq_000034
+  - seq_000035
+  - seq_000036
+  - seq_000037
+  - seq_000038
+  - seq_000039
+  - seq_000040
+  - seq_000041
+  - seq_000042
+  - seq_000043
+  - seq_000044
+  - seq_000045
+  - seq_000046
+  - seq_000047
+  - seq_000048
+  - seq_000049
+  - seq_000050
+  - seq_000051
+  - seq_000052
+  - seq_000053
+  - seq_000054
+  - seq_000055
+  - seq_000056
+  - seq_000057
+  - seq_000058
+  - seq_000059
+  - seq_000060
+  - seq_000061
+  - seq_000062
+  - seq_000063
+  - seq_000064
+  - seq_000065
+  - seq_000066
+  - seq_000067
+  - seq_000068
+  - seq_000069
+  - seq_000070
+  - seq_000071
+  - seq_000072
+  - seq_000073
+  - seq_000074
+  - seq_000075
+  - seq_000076
+  - seq_000077
+  - seq_000078
+  - seq_000079
+  - seq_000080
+  - seq_000081
+  - seq_000082
+  - seq_000083
+  - seq_000084
+  - seq_000085
+  - seq_000086
+  - seq_000087
+  - seq_000088
+  - seq_000089
+  - seq_000090
+  - seq_000091
+  - seq_000092
+  - seq_000093
+  - seq_000094
+  - seq_000095
+  - seq_000096
+  - seq_000097
+  - seq_000098
+  - seq_000099
+- gen_coco_1:
+  - seq_000000
+  - seq_000001
+  - seq_000002
+  - seq_000003
+  - seq_000004
+  - seq_000005
+  - seq_000006
+  - seq_000007
+  - seq_000008
+  - seq_000009
+  - seq_000010
+  - seq_000011
+  - seq_000012
+  - seq_000013
+  - seq_000014
+  - seq_000015
+  - seq_000016
+  - seq_000017
+  - seq_000018
+  - seq_000019
+  - seq_000020
+  - seq_000021
+  - seq_000022
+  - seq_000023
+  - seq_000024
+test_sequences:
+- uevd:
+  - test_subset_10
+  - test_subset_11
+  - test_subset_12
+  - test_subset_13
+  - test_subset_14
+  - test_subset_15
+
+# data augmentation settings
+augmentation:
+  modality_drop:
+    enable: true
+    frame_drop_p: 0.4
+    event_drop_p: 0.4
+  frame:
+    enable: true
+    enable_in_train: false
+    in_train_dropout_p: 0.0
+    params:
+      gamma_p: 0.0
+      gamma_limit:
+      - 15
+      - 65
+      brightness_p: 0.0
+      brightness_limit:
+      - -0.4
+      - 0.6
+      contrast_limit:
+      - -0.2
+      - 0.2
+      noise_p: 0.0
+      motion_blur_p: 0.0
+      motion_blur_limit:
+      - 10
+      - 20
+      dropout_p: 0.0
+      dropout_size_limit:
+      - 1
+      - 1
+      dropout_num_limit:
+      - 1
+      - 1
+      hdr_p: 0.4
+  event:
+    enable: false
+    enable_in_train: false
+    in_train_dropout_p: 0.5
+    params:
+      gamma_p: 0.0
+      gamma_limit:
+      - 15
+      - 65
+      brightness_p: 0.0
+      brightness_limit:
+      - -0.4
+      - 0.6
+      contrast_limit:
+      - -0.2
+      - 0.2
+      noise_p: 0.0
+      motion_blur_p: 0.0
+      motion_blur_limit:
+      - 3
+      - 15
+      dropout_p: 0.0
+      dropout_size_limit:
+      - 0.2
+      - 0.3
+      dropout_num_limit:
+      - 1
+      - 1
+  low_image:
+    enable: false
+    p: 0.5
+  blur_image:
+    enable: true
+    p: 0.6
+  use_real_blur: true
+
+# model settings
+train_type: fusion
+backbone: sp-vgg-deblur
+use_spbn: true
+use_spbn_decoder: true
+use_event_injection: true
+injection_type: selective_e2f_new
+use_event_enable_selector: true
+input_representation: mcts
+event_input_channels: 10
+frame_input_channels: 1
+feature_channels: 128
+backbone_output_channels: 128
+grid_size: 8
+descriptor_size: 256
+vgg_norm: gn
+pixel_wise_predictions: false
+
+# training settings
+frozen_frame_backbone: false
+frozen_event_backbone: false
+frozen_frame_backbone_normalization: true
+frozen_event_backbone_normalization: false
+frozen_decoder: false
+frozen_decoder_norm: true
+frame_ckpt_pretrained: pretrained/superpoint_v6_from_tf.pth
+event_ckpt_pretrained: pretrained/stage1.pth
+pretrained_fe_detector: false
+fusion_decoder: false
+
+# loss settings
+event_count_mask: false
+event_points_mask: false
+masked_descriptor_loss: false
+feature_loss: true
+logits_loss: false
+logits_loss_mode: kl_div
+descriptor_feature_loss_mode: cosine_similarity
+desc_type: raw
+double_softmax_loss: true
+positive_margin: 1
+negative_margin: 0.2
+lambda_d: 0.5
+lambda_det_loss: 1
+lambda_loss: 10
+detector_loss_alpha: 0.75
+detector_loss_gamma: 2.0
+double_softmax_loss_temperature: 0.1
+cossim_loss_alpha: 0.85
+cossim_loss_beta: -0.5
+lambda_cossim: 0.01
+lambda_l1_sparsity: 1.0
+lambda_logits_loss: 0.1
+coordinate_loss_concentration_weight: 0.1
+lambda_descriptor_feature_loss: 1.0
+
+# training hyperparameters
+learning_rate: 0.0001
+batch_size: 1
+epochs: 10
+max_grad_norm: 1.0
+gradient_accumulation_steps: 4
+num_batches_train_logging: 100
+num_train_samples_before_validation: 5000
+max_num_validation_samples: 5000
+ts_dropout: 0.0
+temporal_matching:
+  enable: true
+homography_adaptation:
+  enable: false
+  difficulty: 0.5
+  max_angle: 45
+  resize_factor: -1
+
+# evaluation settings
+detection_threshold: 0.05
+nms_box_size: 5
+
+# fusion settings
+fusion_config:
+  name: GatedChannelCBAMFusion
+  is_FPN: false
+  fusion_type: gated_channel_cbam
+  embed_dim: 32
+  dim_multiplier:
+  - 2
+  - 4
+  - 4
+  num_blocks:
+  - 1
+  - 1
+  - 1
+  attention:
+    use_torch_mha: false
+    partition_size: 5
+    dim_head: 8
+    attention_bias: true
+    mlp_activation: gelu
+    mlp_gated: false
+    mlp_bias: true
+    mlp_ratio: 4
+    drop_mlp: 0.0
+    drop_path: 0.0
+    ls_init_value: 5.0e-05
+    norm_eps: 5.0e-05
+  fusion_norm: layernorm
+  cbam_reduction: 16
+  cbam_kernel_size: 7
+  fusion_zero_init: true
+descriptor_feature_loss: false
+coordinate_loss: false
+desc_l1_sparsity_loss: false
+feature_loss_for_event: false
+use_frame_only_for_descriptors: false
+use_seprate_decoder: false
+cosine_eta_min: 5.0e-06

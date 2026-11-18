@@ -1,0 +1,427 @@
+# Stage 1 reference: config/super_event_vgg_event.yaml in the original SuperEvent checkout.
+train_data_path: dataset/SuperEvent_data
+shuffle_data: true
+max_num_samples_per_sequence_train:
+  mvsec: 7000
+  fpv: 1500
+  griffin: 4000
+max_num_samples_per_sequence_val:
+  ddd20: 1000
+  fpv: 500
+  griffin: 750
+dataset_names:
+- mvsec
+- vivid
+- ddd20
+- fpv
+- griffin
+- uevd
+- gen_coco
+- gen_coco_1
+val_sequences:
+- mvsec:
+  - indoor_flying4
+- vivid:
+  - global_robust
+- ddd20:
+  - rec1501288723
+- fpv:
+  - indoor_45_4_davis_with_gt
+  - indoor_forward_10_davis_with_gt
+  - outdoor_forward_5_davis_with_gt
+- griffin:
+  - Soccer_Base_3
+  - Testbed_ArUco_3
+- uevd:
+  - test_subset_00
+  - test_subset_01
+  - test_subset_02
+  - test_subset_03
+  - test_subset_04
+  - test_subset_05
+  - test_subset_06
+  - test_subset_07
+  - test_subset_08
+  - test_subset_09
+- gen_coco:
+  - seq_000000
+  - seq_000001
+  - seq_000002
+  - seq_000003
+  - seq_000004
+  - seq_000005
+  - seq_000006
+  - seq_000007
+  - seq_000008
+  - seq_000009
+  - seq_000010
+  - seq_000011
+  - seq_000012
+  - seq_000013
+  - seq_000014
+  - seq_000015
+  - seq_000016
+  - seq_000017
+  - seq_000018
+  - seq_000019
+  - seq_000020
+  - seq_000021
+  - seq_000022
+  - seq_000023
+  - seq_000024
+  - seq_000025
+  - seq_000026
+  - seq_000027
+  - seq_000028
+  - seq_000029
+  - seq_000030
+  - seq_000031
+  - seq_000032
+  - seq_000033
+  - seq_000034
+  - seq_000035
+  - seq_000036
+  - seq_000037
+  - seq_000038
+  - seq_000039
+  - seq_000040
+  - seq_000041
+  - seq_000042
+  - seq_000043
+  - seq_000044
+  - seq_000045
+  - seq_000046
+  - seq_000047
+  - seq_000048
+  - seq_000049
+  - seq_000050
+  - seq_000051
+  - seq_000052
+  - seq_000053
+  - seq_000054
+  - seq_000055
+  - seq_000056
+  - seq_000057
+  - seq_000058
+  - seq_000059
+  - seq_000060
+  - seq_000061
+  - seq_000062
+  - seq_000063
+  - seq_000064
+  - seq_000065
+  - seq_000066
+  - seq_000067
+  - seq_000068
+  - seq_000069
+  - seq_000070
+  - seq_000071
+  - seq_000072
+  - seq_000073
+  - seq_000074
+  - seq_000075
+  - seq_000076
+  - seq_000077
+  - seq_000078
+  - seq_000079
+  - seq_000080
+  - seq_000081
+  - seq_000082
+  - seq_000083
+  - seq_000084
+  - seq_000085
+  - seq_000086
+  - seq_000087
+  - seq_000088
+  - seq_000089
+  - seq_000090
+  - seq_000091
+  - seq_000092
+  - seq_000093
+  - seq_000094
+  - seq_000095
+  - seq_000096
+  - seq_000097
+  - seq_000098
+  - seq_000099
+- gen_coco_1:
+  - seq_000000
+  - seq_000001
+  - seq_000002
+  - seq_000003
+  - seq_000004
+  - seq_000005
+  - seq_000006
+  - seq_000007
+  - seq_000008
+  - seq_000009
+  - seq_000010
+  - seq_000011
+  - seq_000012
+  - seq_000013
+  - seq_000014
+  - seq_000015
+  - seq_000016
+  - seq_000017
+  - seq_000018
+  - seq_000019
+  - seq_000020
+  - seq_000021
+  - seq_000022
+  - seq_000023
+  - seq_000024
+test_sequences:
+- mvsec:
+  - outdoor_night1
+- vivid:
+  - dark_aggresive
+  - dark_robust
+  - dark_unstable
+  - varying_robust
+- ddd20:
+  - rec1498946027
+  - rec1498949617
+  - rec1499023756
+  - rec1499275182
+  - rec1499533882
+  - rec1499656391
+  - rec1499657850
+  - rec1500383971
+  - rec1501614399
+  - rec1501650719
+  - rec1501651162
+  - rec1501994881
+  - rec1502336427
+  - rec1502337436
+  - rec1502338023
+  - rec1502338983
+  - rec1502339743
+  - rec1502599151
+- fpv:
+  - indoor_45_14_davis_with_gt
+  - indoor_45_16_davis
+  - outdoor_45_1_davis_with_gt
+  - outdoor_45_2_davis
+- gopro:
+  - GOPR0385_11_01
+  - GOPR0862_11_00
+  - GOPR0881_11_01
+  - GOPR0396_11_00
+  - GOPR0868_11_00
+- uevd:
+  - test_subset_10
+  - test_subset_11
+  - test_subset_12
+  - test_subset_13
+  - test_subset_14
+  - test_subset_15
+- gen_coco:
+  - seq_000100
+  - seq_000101
+  - seq_000102
+  - seq_000103
+  - seq_000104
+  - seq_000105
+  - seq_000106
+  - seq_000107
+  - seq_000108
+  - seq_000109
+  - seq_000110
+  - seq_000111
+  - seq_000112
+  - seq_000113
+  - seq_000114
+  - seq_000115
+  - seq_000116
+  - seq_000117
+  - seq_000118
+  - seq_000119
+  - seq_000120
+  - seq_000121
+  - seq_000122
+  - seq_000123
+  - seq_000124
+  - seq_000125
+  - seq_000126
+  - seq_000127
+  - seq_000128
+  - seq_000129
+  - seq_000130
+  - seq_000131
+  - seq_000132
+  - seq_000133
+  - seq_000134
+  - seq_000135
+  - seq_000136
+  - seq_000137
+  - seq_000138
+  - seq_000139
+  - seq_000140
+  - seq_000141
+  - seq_000142
+  - seq_000143
+  - seq_000144
+  - seq_000145
+  - seq_000146
+  - seq_000147
+  - seq_000148
+  - seq_000149
+- gen_coco_1:
+  - seq_000025
+  - seq_000026
+  - seq_000027
+  - seq_000028
+  - seq_000029
+  - seq_000030
+  - seq_000031
+  - seq_000032
+  - seq_000033
+  - seq_000034
+  - seq_000035
+  - seq_000036
+  - seq_000037
+  - seq_000038
+  - seq_000039
+  - seq_000040
+  - seq_000041
+  - seq_000042
+  - seq_000043
+  - seq_000044
+  - seq_000045
+  - seq_000046
+  - seq_000047
+  - seq_000048
+  - seq_000049
+
+# data augmentation settings
+augmentation:
+  modality_drop:
+    enable: false
+    frame_drop_p: 0.2
+    event_drop_p: 0.2
+  frame:
+    enable: false
+    params:
+      gamma_p: 0.15
+      gamma_limit:
+      - 15
+      - 65
+      brightness_p: 0.15
+      brightness_limit:
+      - -0.4
+      - 0.6
+      contrast_limit:
+      - -0.2
+      - 0.2
+      noise_p: 0.0
+      motion_blur_p: 0.1
+      motion_blur_limit:
+      - 3
+      - 15
+      dropout_p: 0.2
+      dropout_size_limit:
+      - 0.1
+      - 0.2
+      dropout_num_limit:
+      - 1
+      - 8
+  event:
+    enable: false
+    params:
+      gamma_p: 0.0
+      gamma_limit:
+      - 15
+      - 65
+      brightness_p: 0.0
+      brightness_limit:
+      - -0.4
+      - 0.6
+      contrast_limit:
+      - -0.2
+      - 0.2
+      noise_p: 0.0
+      motion_blur_p: 0.0
+      motion_blur_limit:
+      - 3
+      - 15
+      dropout_p: 0.5
+      dropout_size_limit:
+      - 0.1
+      - 0.2
+      dropout_num_limit:
+      - 1
+      - 2
+
+# model settings
+train_type: event
+backbone: vgg
+use_spbn: true
+use_spbn_decoder: true
+use_event_enable_selector: true
+input_representation: mcts
+input_channels: 10
+event_input_channels: 10
+frame_input_channels: 1
+feature_channels: 128
+backbone_output_channels: 128
+grid_size: 8
+descriptor_size: 256
+vgg_norm: gn
+pixel_wise_predictions: false
+
+# training settings
+frozen_backbone: false
+frozen_decoder: true
+frozen_decoder_norm: true
+frame_ckpt_pretrained: pretrained/superpoint_v6_from_tf.pth
+
+# loss settings
+positive_margin: 1
+negative_margin: 0.2
+lambda_d: 0.5
+lambda_loss: 10
+detector_loss_alpha: 0.75
+detector_loss_gamma: 2.0
+double_softmax_loss_temperature: 0.1
+desc_l1_loss: false
+feature_loss: true
+hard_E_detector_loss: false
+hard_F_detector_loss: false
+keypoint_mse_loss: false
+event_desc_loss: false
+descriptor_feature_loss: true
+descriptor_feature_loss_mode: cosine_similarity
+desc_type: raw
+feature_loss_type: sp
+cossim_loss_alpha: 0.85
+cossim_loss_beta: 0.2
+lambda_cossim: 0.01
+lambda_l1: 1.0
+lambda_hard_cossim: 0.0
+lambda_hard_l1: 0.0
+lambda_hard_det_loss: 0.0
+lambda_e_loss: 0.0
+lambda_logits_loss: 0.1
+coordinate_loss_concentration_weight: 0.1
+
+# training hyperparameters
+learning_rate: 0.0001
+batch_size: 1
+epochs: 10
+max_grad_norm: 1.0
+gradient_accumulation_steps: 4
+num_batches_train_logging: 100
+num_train_samples_before_validation: 5000
+max_num_validation_samples: 5000
+ts_dropout: 0.0
+temporal_matching:
+  enable: true
+homography_adaptation:
+  enable: false
+  difficulty: 0.5
+  max_angle: 45
+  resize_factor: -1
+
+# evaluation settings
+detection_threshold: 0.01
+nms_box_size: 5

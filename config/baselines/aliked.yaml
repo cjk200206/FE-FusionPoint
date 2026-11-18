@@ -1,0 +1,8 @@
+# Paper baseline inference configuration.
+train_type: aliked
+input_representation: mcts
+event_input_channels: 10
+frame_input_channels: 1
+grid_size: 8
+detection_threshold: 0.01
+nms_box_size: 5
